@@ -18,7 +18,7 @@ Array.prototype.uniq3 = function() {
     return a;
 }
 // 优 能去重NaN,{}
-Array.prototype.uniq3 = function() {
+Array.prototype.uniq4 = function() {
     let arr = this;
     let obj = {};
     return arr.filter(function(item) {
