@@ -1,3 +1,4 @@
+// ES5
 Function.prototype.myCall = function(context) {
     // 当call绑定的this为null或undefiend时，将this指向window
     context = context ? Object(context) : window;
@@ -12,6 +13,17 @@ Function.prototype.myCall = function(context) {
     // 执行context.fn
     result = eval('context.fn(' + args + ')');
     // 删除多余的属性
+    delete context.fn;
+    return result;
+}
+
+// ES6
+Function.prototype.myCall6 = function(context) {
+    context = context ? context : window;
+    context.fn = this;
+
+    let args = [...arguments].slice(1);
+    let result = context.fn(...args);
     delete context.fn;
     return result;
 }
