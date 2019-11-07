@@ -1,6 +1,6 @@
 // ES5
 Function.prototype.myCall = function(context) {
-    // 当call绑定的this为null或undefiend时，将this指向window
+    // 当call绑定的this为null或undefiend时，将this指向window，this可传基本数据类型，原生call内部实现确保其为Object对象类型
     context = context ? Object(context) : window;
     // 这里context变量的含义为执行上下文，即call传入的第一个参数
     context.fn = this;
